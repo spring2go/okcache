@@ -31,13 +31,13 @@ public class LruCacheV3<K, V> {
         }
     }
 
-    private int stripeIndex(K key) {
+    private int segmentIndex(K key) {
         int hashCode = Math.abs(key.hashCode() * 31);
         return hashCode % cacheSegments.length;
     }
 
     private LruCacheV2<K, V> cache(K key) {
-        return cacheSegments[stripeIndex(key)];
+        return cacheSegments[segmentIndex(key)];
     }
 
     public void put(K key, V value) {
