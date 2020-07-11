@@ -30,7 +30,7 @@ public class LruCacheV1<K, V> {
         }
     }
 
-    // 从双向链表的头部移除一个节点
+    // 从双向链表中移除一个节点
     private void removeNode(Node<K, V> node) {
         if (node == null) return;
 
